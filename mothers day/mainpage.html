@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Mother's Day</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Poppins',sans-serif;
+  overflow-x:hidden;
+  background:linear-gradient(to bottom,#fff5f7,#ffe0ea,#fffafc);
+  color:#4b2c36;
+  transition:0.4s ease;
+}
+
+body.dark{
+  background:linear-gradient(to bottom,#1e1418,#2b1b20,#140d10);
+  color:#fff;
+}
+
+section{
+  padding:90px 8%;
+}
+
+/* PETALS */
+.petals span{
+  position:fixed;
+  top:-10%;
+  font-size:20px;
+  animation:fall linear infinite;
+  opacity:0.7;
+  z-index:0;
+}
+
+@keyframes fall{
+  0%{
+    transform:translateY(-100px) rotate(0deg);
+  }
+  100%{
+    transform:translateY(120vh) rotate(360deg);
+  }
+}
+
+/* NAV */
+nav{
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 8%;
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:1000;
+  backdrop-filter:blur(10px);
+  background:rgba(255,255,255,0.15);
+}
+
+body.dark nav{
+  background:rgba(0,0,0,0.2);
+}
+
+.logo{
+  font-family:'Great Vibes',cursive;
+  font-size:2rem;
+  color:#d6336c;
+}
+
+.nav-buttons{
+  display:flex;
+  gap:15px;
+}
+
+.circle-btn{
+  width:45px;
+  height:45px;
+  border-radius:50%;
+  border:none;
+  cursor:pointer;
+  background:#fff;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+  font-size:18px;
+}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:50px;
+  position:relative;
+  z-index:2;
+}
+
+.hero-text{
+  max-width:600px;
+}
+
+.hero-text h1{
+  font-family:'Great Vibes',cursive;
+  font-size:6rem;
+  color:#d6336c;
+}
+
+.typing{
+  font-size:1.3rem;
+  margin:20px 0;
+  min-height:40px;
+  color:#8a435f;
+}
+
+.hero-text p{
+  line-height:1.9;
+  margin-bottom:30px;
+}
+
+.buttons{
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  padding:14px 28px;
+  border-radius:50px;
+  border:none;
+  cursor:pointer;
+  text-decoration:none;
+  font-weight:600;
+  transition:0.4s;
+}
+
+.primary{
+  background:#d6336c;
+  color:white;
+}
+
+.primary:hover{
+  transform:translateY(-5px);
+}
+
+.secondary{
+  background:white;
+  color:#d6336c;
+}
+
+.hero-image img{
+  width:420px;
+  border-radius:30px;
+  box-shadow:0 25px 40px rgba(0,0,0,0.15);
+  animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-15px);}
+}
+
+/* GLASS CARD */
+.glass{
+  background:rgba(255,255,255,0.2);
+  backdrop-filter:blur(15px);
+  border:1px solid rgba(255,255,255,0.3);
+  border-radius:30px;
+  padding:40px;
+  text-align:center;
+  box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+.title{
+  text-align:center;
+  margin-bottom:50px;
+}
+
+.title h2{
+  font-size:3rem;
+  color:#d6336c;
+  margin-bottom:10px;
+}
+
+/* FLIP CARDS */
+.flip-container{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+}
+
+.flip-card{
+  perspective:1000px;
+}
+
+.flip-inner{
+  position:relative;
+  width:100%;
+  height:250px;
+  transition:transform 0.8s;
+  transform-style:preserve-3d;
+}
+
+.flip-card:hover .flip-inner{
+  transform:rotateY(180deg);
+}
+
+.flip-front,.flip-back{
+  position:absolute;
+  width:100%;
+  height:100%;
+  border-radius:25px;
+  backface-visibility:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:25px;
+  text-align:center;
+}
+
+.flip-front{
+  background:white;
+  color:#d6336c;
+  font-size:1.5rem;
+  box-shadow:0 10px 20px rgba(0,0,0,0.08);
+}
+
+.flip-back{
+  background:#d6336c;
+  color:white;
+  transform:rotateY(180deg);
+}
+
+/* POLAROID */
+.polaroid-wall{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:35px;
+}
+
+.polaroid{
+  width:250px;
+  background:white;
+  padding:15px 15px 50px;
+  border-radius:10px;
+  box-shadow:0 10px 20px rgba(0,0,0,0.15);
+  transform:rotate(-4deg);
+  transition:0.4s;
+  position:relative;
+}
+
+.polaroid:nth-child(even){
+  transform:rotate(4deg);
+}
+
+.polaroid:hover{
+  transform:scale(1.05) rotate(0deg);
+}
+
+.polaroid::before{
+  content:'';
+  position:absolute;
+  width:80px;
+  height:25px;
+  background:rgba(255,220,220,0.7);
+  top:-10px;
+  left:50%;
+  transform:translateX(-50%) rotate(-3deg);
+}
+
+.polaroid img{
+  width:100%;
+  height:280px;
+  object-fit:cover;
+  border-radius:5px;
+}
+
+.polaroid p{
+  text-align:center;
+  margin-top:15px;
+  font-family:'Great Vibes',cursive;
+  font-size:1.5rem;
+  color:#d6336c;
+}
+
+/* GALLERY */
+.gallery-section{
+  overflow:hidden;
+}
+
+.gallery-track{
+  display:flex;
+  width:calc(320px * 14);
+  animation:scroll 30s linear infinite;
+  gap:20px;
+}
+
+.gallery-track:hover{
+  animation-play-state:paused;
+}
+
+.gallery-item{
+  width:300px;
+  height:420px;
+  border-radius:25px;
+  overflow:hidden;
+  position:relative;
+}
+
+.gallery-item img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transition:0.4s;
+}
+
+.gallery-item:hover img{
+  transform:scale(1.08);
+}
+
+.overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,0.7),transparent);
+  display:flex;
+  align-items:flex-end;
+  padding:20px;
+  color:white;
+  font-weight:600;
+}
+
+@keyframes scroll{
+  0%{transform:translateX(0);}
+  100%{transform:translateX(calc(-320px * 7));}
+}
+
+/* LETTER */
+.letter{
+  max-width:850px;
+  margin:auto;
+  background:white;
+  padding:50px;
+  border-radius:30px;
+  line-height:2;
+  font-size:1.1rem;
+  box-shadow:0 15px 30px rgba(0,0,0,0.08);
+}
+
+body.dark .letter,
+body.dark .flip-front,
+body.dark .polaroid,
+body.dark .glass{
+  background:rgba(255,255,255,0.08);
+  color:white;
+}
+
+.letter h3{
+  font-family:'Great Vibes',cursive;
+  font-size:3rem;
+  color:#d6336c;
+  margin-bottom:20px;
+}
+
+/* COUNTDOWN */
+.countdown{
+  text-align:center;
+}
+
+.count-box{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  margin-top:40px;
+  flex-wrap:wrap;
+}
+
+.box{
+  background:white;
+  min-width:160px;
+  padding:30px 20px;
+  border-radius:25px;
+  box-shadow:0 10px 20px rgba(0,0,0,0.08);
+}
+
+.box h1{
+  color:#d6336c;
+  font-size:2.5rem;
+  word-break:break-word;
+}
+
+/* FOOTER */
+footer{
+  background:#d6336c;
+  color:white;
+  text-align:center;
+  padding:40px;
+}
+
+footer h2{
+  font-family:'Great Vibes',cursive;
+  font-size:3rem;
+}
+
+@media(max-width:900px){
+  .hero{
+    flex-direction:column-reverse;
+    text-align:center;
+    justify-content:center;
+  }
+
+  .buttons{
+    justify-content:center;
+  }
+
+  .hero-text h1{
+    font-size:4rem;
+  }
+
+  .hero-image img{
+    width:320px;
+  }
+}
+
+@media(max-width:600px){
+  .hero-text h1{
+    font-size:3.3rem;
+  }
+
+  .title h2{
+    font-size:2.2rem;
+  }
+
+  .gallery-item{
+    width:240px;
+    height:340px;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="petals">
+  <span style="left:5%; animation-duration:8s;">🌸</span>
+  <span style="left:15%; animation-duration:12s;">🌸</span>
+  <span style="left:30%; animation-duration:9s;">🌸</span>
+  <span style="left:45%; animation-duration:14s;">🌸</span>
+  <span style="left:60%; animation-duration:11s;">🌸</span>
+  <span style="left:75%; animation-duration:13s;">🌸</span>
+  <span style="left:90%; animation-duration:10s;">🌸</span>
+</div>
+
+<nav>
+  <div class="logo">Mother's Day ❤</div>
+
+  <div class="nav-buttons">
+    <button class="circle-btn" id="musicBtn">🎵</button>
+    <button class="circle-btn" id="themeBtn">🌙</button>
+  </div>
+</nav>
+
+<audio id="bgMusic" loop>
+  <source src="./music.mp3">
+</audio>    
+
+<section class="hero">
+  <div class="hero-text">
+    <h1>Happy Mother's Day</h1>
+
+    <div class="typing" id="typing"></div>
+
+    <p>
+      To the woman who gave endless love, strength, comfort, and warmth — this website is dedicated to you. Every smile, every sacrifice, and every memory means more than words can ever express.
+    </p>
+
+    <div class="buttons">
+      <a href="#gallery" class="btn primary">View Memories</a>
+      <a href="#letter" class="btn secondary">Read Letter</a>
+    </div>
+  </div>
+
+  <div class="hero-image">
+    <img src="./WhatsApp Image 2026-05-09 at 2.15.01 PM.jpeg">
+  </div>
+</section>
+
+<section>
+  <div class="glass">
+    <h2 style="font-size:3rem; color:#d6336c; margin-bottom:15px;">A Mother's Love</h2>
+    <p style="line-height:2; font-size:1.1rem;">
+      A mother’s love is the first home we ever know — soft enough to comfort us and strong enough to guide us through life.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="title">
+    <h2>Reasons I Love You</h2>
+  </div>
+
+  <div class="flip-container">
+
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-front">💖 Your Care</div>
+        <div class="flip-back">You always put everyone else before yourself.</div>
+      </div>
+    </div>
+
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-front">🌸 Your Smile</div>
+        <div class="flip-back">Your smile makes every difficult day feel lighter.</div>
+      </div>
+    </div>
+
+    <div class="flip-card">
+      <div class="flip-inner">
+        <div class="flip-front">✨ Your Strength</div>
+        <div class="flip-back">You stay strong even during the hardest times.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <div class="title">
+    <h2>Polaroid Memories</h2>
+  </div>
+
+  <div class="polaroid-wall">
+
+    <div class="polaroid">
+      <img src="./WhatsApp Image 2026-05-09 at 2.17.30 PM.jpeg">
+      <p>Warm Hugs</p>
+    </div>
+
+    <div class="polaroid">
+      <img src="./WhatsApp Image 2026-05-09 at 2.21.23 PM.jpeg">
+      <p>Precious Moments</p>
+    </div>
+
+    <div class="polaroid">
+      <img src="./WhatsApp Image 2026-05-09 at 2.16.26 PM.jpeg">
+      <p>Forever Love</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="gallery" class="gallery-section">
+  <div class="title">
+    <h2>Infinite Memories</h2>
+  </div>
+
+  <div class="gallery-track">
+
+    <div class="gallery-item">
+      <img src="./WhatsApp Image 2026-05-09 at 2.28.06 PM.jpeg">
+      <div class="overlay">Moments</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="./WhatsApp Image 2026-05-09 at 2.28.29 PM.jpeg">
+      <div class="overlay">Happiness</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="./WhatsApp Image 2026-05-09 at 2.28.58 PM.jpeg">
+      <div class="overlay">Love</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="./WhatsApp Image 2026-05-09 at 2.28.40 PM.jpeg">
+      <div class="overlay">Smiles</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="./WhatsApp Image 2026-05-09 at 4.43.24 PM.jpeg">
+      <div class="overlay">Family</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="./WhatsApp Image 2026-05-09 at 4.43.15 PM.jpeg">
+      <div class="overlay">Forever</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="./WhatsApp Image 2026-05-09 at 4.50.18 PM.jpeg">
+      <div class="overlay">Moments</div>
+    </div>
+    <div class="gallery-item">
+      <img src="./WhatsApp Image 2026-05-09 at 4.49.03 PM.jpeg">
+      <div class="overlay">Smiles</div>
+    </div>
+    <div class="gallery-item">
+      <img src="./WhatsApp Image 2026-05-09 at 4.51.25 PM.jpeg">
+      <div class="overlay">Forever</div>
+    </div>
+
+    <div class="gallery-item">
+      <img src="./WhatsApp Image 2026-05-09 at 4.51.36 PM.jpeg">
+      <div class="overlay">Love</div>
+    </div>
+    <div class="gallery-item">
+      <img src="./WhatsApp Image 2026-05-09 at 4.51.59 PM.jpeg">
+      <div class="overlay">Forever</div>
+    </div>
+
+
+  </div>
+</section>
+
+<section id="letter">
+  <div class="letter">
+    <h3>Dear Mom,</h3>
+
+    <p>
+      Thank you for every sacrifice, every sleepless night, every comforting hug, and every moment you stood beside me when life became difficult.
+      
+      You are the reason behind so many smiles and so much strength in my life. No words could ever fully describe how grateful I am for your endless love and support.
+
+      Thank you for being my first teacher, my safest place, and my greatest inspiration.
+
+      Happy Mother’s Day ❤
+    </p>
+  </div>
+</section>
+
+<section class="countdown">
+  <div class="title">
+    <h2>Forever Grateful</h2>
+    <p>Every second with you is precious.</p>
+  </div>
+
+  <div class="count-box">
+    <div class="box">
+      <h1 id="days">0</h1>
+      <p>Days</p>
+    </div>
+
+    <div class="box">
+      <h1 id="hours">0</h1>
+      <p>Hours</p>
+    </div>
+
+    <div class="box">
+      <h1 id="minutes">0</h1>
+      <p>Minutes</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <h2>Happy Mother's Day ❤</h2>
+  <p>Made with love and gratitude.</p>
+</footer>
+
+<script>
+const text = "You are my first home, my greatest comfort, and my forever hero...";
+let index = 0;
+
+function typeEffect(){
+  if(index < text.length){
+    document.getElementById('typing').innerHTML += text.charAt(index);
+    index++;
+    setTimeout(typeEffect,50);
+  }
+}
+
+window.onload = typeEffect;
+
+const musicBtn = document.getElementById('musicBtn');
+const music = document.getElementById('bgMusic');
+let playing = false;
+
+musicBtn.addEventListener('click',()=>{
+  if(!playing){
+    music.play();
+    musicBtn.innerHTML = '⏸';
+    playing = true;
+  }
+  else{
+    music.pause();
+    musicBtn.innerHTML = '🎵';
+    playing = false;
+  }
+});
+
+const themeBtn = document.getElementById('themeBtn');
+
+themeBtn.addEventListener('click',()=>{
+  document.body.classList.toggle('dark');
+
+  if(document.body.classList.contains('dark')){
+    themeBtn.innerHTML='☀';
+  }
+  else{
+    themeBtn.innerHTML='🌙';
+  }
+});
+
+function updateCounter(){
+  const now = new Date();
+  const start = new Date('2007-05-30');
+
+  const diff = now - start;
+
+  const days = Math.floor(diff/(1000*60*60*24));
+  const hours = now.getHours();
+  const minutes = now.getMinutes();
+
+  document.getElementById('days').innerHTML = days;
+  document.getElementById('hours').innerHTML = hours;
+  document.getElementById('minutes').innerHTML = minutes;
+}
+
+updateCounter();
+setInterval(updateCounter,1000);
+</script>
+
+</body>
+</html>
